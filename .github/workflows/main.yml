@@ -12,7 +12,13 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+      
+    - name: Clean up dependencies cache
+      run: npm cache clean --force
 
+    - name: Install dependencies
+      run: npm install
+      
     - name: Set up JDK
       uses: actions/setup-java@v1
       with:
